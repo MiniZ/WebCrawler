@@ -1,0 +1,8 @@
+config\ProgramConstants.class
+Main.class
+helper\QueryBuilder.class
+connectors\URLConnector.class
+htmlworkers\HtmlExtractor.class
+comparators\ValueComparator.class
+htmlworkers\HtmlParser.class
+concurency\LibraryExtractor.class
