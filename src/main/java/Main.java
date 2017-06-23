@@ -53,7 +53,7 @@ public class Main {
 
         List<Future<List<String>>> results = null;
         try {
-            results = executorService.invokeAll(tasks, 20, TimeUnit.SECONDS);
+            results = executorService.invokeAll(tasks, 30, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             return new TreeMap<>();
         }
