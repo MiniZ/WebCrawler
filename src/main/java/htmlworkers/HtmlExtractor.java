@@ -1,4 +1,4 @@
-package helper;
+package htmlworkers;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -9,19 +9,22 @@ import java.util.Scanner;
  */
 public class HtmlExtractor {
 
-    public String extractHtml(String url) {
-        URLConnector urlConnector = new URLConnector(url);
-        HttpURLConnection connection = urlConnector.getConnection();
+    public String extractHtml(HttpURLConnection connection) {
+        //URLConnector urlConnector = new URLConnector(url);
+//        HttpURLConnection connection = urlConnector.getConnection();
         if (connection == null) return "";
         Scanner scanner = null;
         try {
             scanner = new Scanner(connection.getInputStream());
         } catch (IOException e) {
-            e.printStackTrace();
             return "";
         }
         scanner.useDelimiter("\\Z");
-        return scanner.next();
+        try {
+            return scanner.next();
+        } catch (Exception e) {
+            return "";
+        }
     }
 
 

@@ -1,4 +1,6 @@
-package helper;
+package connectors;
+
+import config.ProgramConstants;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -14,6 +16,10 @@ public class URLConnector {
         this.url = url;
     }
 
+    public URLConnector() {
+
+    }
+
     public HttpURLConnection getConnection() {
         HttpURLConnection connection = null;
         try {
@@ -22,9 +28,13 @@ public class URLConnector {
             connection.addRequestProperty("User-Agent", "Mozilla/4.76");
             return connection;
         }catch ( Exception ex ) {
-            ex.printStackTrace();
-            SystemPrinter.unableToConnect();
+//            ex.printStackTrace();
+            System.out.println(ProgramConstants.UNABLE_TO_CONNECT);
             return null;
         }
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
